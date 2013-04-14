@@ -214,3 +214,22 @@
     (setq custom-file (concat live-custom-dir "custom-configuration.el")))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+
+
+;; file associations
+(add-to-list 'auto-mode-alist '("\\Rakefile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Capfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Gemfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
+
+;;utf
+(setq buffer-file-coding-system 'utf-8-unix)
+(setq default-file-name-coding-system 'utf-8-unix)
+(setq default-keyboard-coding-system 'utf-8-unix)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq default-sendmail-coding-system 'utf-8-unix)
+(setq default-terminal-coding-system 'utf-8-unix)
