@@ -233,3 +233,25 @@
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 (setq default-sendmail-coding-system 'utf-8-unix)
 (setq default-terminal-coding-system 'utf-8-unix)
+
+;; load-magit-log-when-committing-mode
+(define-minor-mode load-magit-log-when-committing-mode
+  "dummy")
+
+;; the hook
+(defun show-magit-log-hook ()
+  (cd "..")
+  (magit-log)
+  (switch-to-buffer-other-window "COMMIT_EDITMSG"))
+
+;; add the hook
+(add-hook 'load-magit-log-when-committing-mode-hook 'show-magit-log-hook)
+
+;; load the mode for commit message
+(add-to-list 'auto-mode-alist '("\\COMMIT_EDITMSG\\'" . load-magit-log-when-committing-mode))
+
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (define-key ruby-mode-map "{" nil)
+            (define-key ruby-mode-map "}" nil)))
