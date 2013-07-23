@@ -255,3 +255,9 @@
           (lambda ()
             (define-key ruby-mode-map "{" nil)
             (define-key ruby-mode-map "}" nil)))
+
+(require 'package)
+(add-to-list 'package-archives
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
